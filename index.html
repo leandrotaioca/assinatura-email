@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assinatura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        a {
+            text-decoration: none;
+            line-height: 16px;
+        }
+        
+        .grid-assinatura {
+            text-align: center;
+        }
+        
+        .font-principal {
+            text-align: center;
+            font-family: Helvetica;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 21px;
+            color: #000000;
+            margin: 0;
+        }
+        
+        .font-secundaria {
+            text-align: center;
+            font-family: Helvetica;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 100%;
+            color: #666666;
+            margin-top: 7px;
+        }
+        
+        .grid-links {
+            text-align: center;
+        }
+        
+        .font-links {
+            text-align: center;
+            font-family: Helvetica;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 8px;
+            line-height: 22px;
+            color: #666666;
+        }
+        
+        .grid-logos {
+            margin: 0px 10px;
+        }
+        
+        .container-bigou {
+            display: flex;
+            margin-top: 100px;
+        }
+        
+        .formulario {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .formulario div {
+            width: 80%;
+            margin-left: 100px;
+        }
+        
+        input {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-bigou">
+        <div class="formulario">
+            <div>
+                <label>Digite seu cargo</label>
+            </div>
+            <div>
+                <input type="text" id="cargo" value="">
+            </div>
+            <div style="margin-top: 20px">
+                <label>Digite seu telefone</label>
+            </div>
+            <div>
+                <input type="text" id="phone" name="phone" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" />
+            </div>
+            <div style="margin-top: 20px">
+                <label>Digite seu nome</label>
+            </div>
+            <div>
+                <input type="text" id="nome" value="">
+            </div>
+            <div style="margin-top: 20px;">
+                <button type="button" class="btn btn-primary" onclick="myFunction()">Gerar Assinatura</button>
+                <button type="button" class="btn btn-success" onclick="CopyToClipboard('assinatura')">Copiar Assinatura Bigou</button>
+                <button type="button" class="btn btn-success" onclick="CopyToClipboard('assinatura-labcinco')">Copiar Assinatura Lab Cinco</button>
+            </div>
+
+        </div>
+        <div class="grid-center" id="assinatura">
+            <table class="grid-assinatura">
+                <tr>
+                    <td colspan="3">
+                        <!-- <img src="logo-bigou.png" class="img-responsive" alt="Bigou"> -->
+                        <img src="https://i.imgur.com/qLYIOjM.png" class="img-responsive" alt="Bigou" width="250px">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <p class="font-principal" id="cargo_input">Diretor Comercial | (32) 98837-2201</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <p class="font-secundaria" id="nome_input">Leandro dos Santos Sant'Ana</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="grid-logos">
+                        <a class="grid-aling-links" href="https://www.facebook.com/bigoudelivery"><img src="https://i.imgur.com/3dC9aH0.png" alt="facebook" width="25px" height="25px"></a>
+                        <a class="grid-aling-links" href="https://bigou.com.br/" style="margin-left:10px"><img src="https://i.imgur.com/qFYM2ca.png" alt="bigou.com.br" width="25px" height="25px"></a>
+                        <a class="grid-aling-links" href="https://www.instagram.com/bigouoficial/" style="margin-left:10px"><img src="https://i.imgur.com/Atb5STS.png" alt="Instagram" width="25px" height="25px"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="grid-center" id="assinatura-labcinco">
+            <table class="grid-assinatura">
+                <tr>
+                    <td colspan="3">
+                        <!-- <img src="logo-bigou.png" class="img-responsive" alt="Bigou"> -->
+                        <img src="https://i.imgur.com/CjI7NTG.png" class="img-responsive" alt="Lab Cinco" width="150px">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <p class="font-principal" id="cargo_input_labcinco">Diretor Comercial | (32) 98837-2201</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <p class="font-secundaria" id="nome_input_labcinco">Leandro dos Santos Sant'Ana</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="grid-logos">
+                        <a class="grid-aling-links" href="https://www.facebook.com/LabCinco"><img src="https://i.imgur.com/5nsuk1w.png" alt="facebook" width="25px" height="25px"></a>
+                        <a class="grid-aling-links" href="https://labcinco.com/" style="margin-left:10px"><img src="https://i.imgur.com/IuvyyuD.png" alt="bigou.com.br" width="25px" height="25px"></a>
+                        <a class="grid-aling-links" href="https://www.instagram.com/labcinco.dev/" style="margin-left:10px"><img src="https://i.imgur.com/2KcSiN4.png" alt="Instagram" width="25px" height="25px"></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var nome = document.getElementById("nome").value;
+            var phone = document.getElementById("phone").value;
+            var cargo = document.getElementById("cargo").value;
+            document.getElementById("cargo_input").innerHTML = cargo + " | " + phone;
+            document.getElementById("nome_input").innerHTML = nome;
+            document.getElementById("cargo_input_labcinco").innerHTML = cargo + " | " + phone;
+            document.getElementById("nome_input_labcinco").innerHTML = nome;
+        }
+
+        function mask(o, f) {
+            setTimeout(function() {
+                var v = mphone(o.value);
+                if (v != o.value) {
+                    o.value = v;
+                }
+            }, 1);
+        }
+
+        function mphone(v) {
+            var r = v.replace(/\D/g, "");
+            r = r.replace(/^0/, "");
+            if (r.length > 10) {
+                r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+            } else if (r.length > 5) {
+                r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+            } else if (r.length > 2) {
+                r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+            } else {
+                r = r.replace(/^(\d*)/, "($1");
+            }
+            return r;
+        }
+
+        function CopyToClipboard(containerid) {
+            if (window.getSelection) {
+                if (window.getSelection().empty) { // Chrome
+                    window.getSelection().empty();
+                } else if (window.getSelection().removeAllRanges) { // Firefox
+                    window.getSelection().removeAllRanges();
+                }
+            } else if (document.selection) { // IE?
+                document.selection.empty();
+            }
+
+            if (document.selection) {
+                var range = document.body.createTextRange();
+                range.moveToElementText(document.getElementById(containerid));
+                range.select().createTextRange();
+                document.execCommand("copy");
+
+            } else if (window.getSelection) {
+                var range = document.createRange();
+                range.selectNode(document.getElementById(containerid));
+                window.getSelection().addRange(range);
+                document.execCommand("copy");
+            }
+        }
+    </script>
+</body>
+
+</html>
